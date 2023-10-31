@@ -1,0 +1,33 @@
+<body class="container">
+    <form [formGroup]="form" (ngSubmit)="sendData()">
+    <!-- <form [formGroup]="form"> -->
+        <div class="row">
+			<div class="col-12 text-left"><b class="text-secondary">Nueva Pagina</b></div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-md-6 mb-3">
+				<label for="inombre">Nombre de la pagina</label>
+				<input type="text" id="inombre" formControlName="nombre" class="form-control"
+					placeholder="Ingresa el nombre de la pagina" value="" maxlength="100">
+				<div class="text-danger" *ngIf="submitted && form.controls['nombre'].errors?.['required']">
+					Debes informar el nombre de la pagina...
+				</div>
+			</div>
+			<br>
+			<div class="col-12 col-md-6 mb-3">
+				<label for="iurl">URL:</label>
+				<input type="text" id="iurl" formControlName="url" class="form-control"
+					placeholder="Ingresa la url" value="">
+				<div class="text-danger" *ngIf="submitted && form.controls['url'].errors?.['required']">
+					Debes informar la url de la pagina...
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<button type="submit" class="btn btn-success">Enviar</button>
+				<button type="button" class="btn btn-danger ms-2" (click)="reset()">Limpiar</button>
+			</div>
+		</div>
+    </form>
+</body>
